@@ -1,40 +1,38 @@
+
 from bot import dp, bot
 from aiogram import types
 from Keyboards.defult import *
 from bot import States
 from aiogram.dispatcher import FSMContext
 
+
 databace = {}
-
-
-@dp.message_handler(text="💼 Вакансии")
-async def vakansii(message: types.Message):
-    await message.answer("Присоединяйтесь в команду EVOS!")
-    await message.answer("📍 Выберите регион:", reply_markup=regions)
-
-
-@dp.message_handler(text="Ташкент")
-async def tashkent(message: types.Message):
-    databace['shaxar'] = message.text
-    await message.answer("💼 Выберите интересующую Вас вакансию", reply_markup=toshkent)
-
-
-@dp.message_handler(text="Универсальный сотрудник")
-async def unoverss(message: types.Message):
+@dp.message_handler(text="Оператор call-центра")
+async def callcentessr(message: types.Message):
     databace['vakansiya'] = message.text
-    photo = open('images/univers.jpg', 'rb')
+    photo = open('images/callcenter.jpg', 'rb')
     await message.answer_photo(photo, caption="""
-📌Возраст от 18 до 35 
+📌 Возраст от 18 до 35 
 
 🇷🇺/🇺🇿 Владение русским и узбекским языком
 
-🕑 Свободный график(желательно)
+🕑 Полная занятость
 
-✔️Опрятный внешний вид 
+👨‍💼/👩‍💼 Опрятный внешний вид
 
-💰 Зарплата от 15000( с учетом вычета НДФЛ) тысяч сум за 1 час    
+🧑‍💻/👩‍💻 Наличие ноутбука/компьютера
+
+Мы предоставляем:
+-Официальное трудоустройство
+-Питание за счет компании
+-Предоставление обучения(оплачиваемая)
+-Почасовая оплата труда
+
+Период стажировки 2 недели
     """)
-    await message.answer("Выберите район где данный момент открыты вакансии.", reply_markup=rayonlar)
+    await message.answer("Выберите район где данный момент открыты вакансии.",reply_markup=callcenter)
+
+
 
 
 @dp.message_handler(text="Назад ⬅")
@@ -42,7 +40,7 @@ async def backkkk(message: types.Message):
     await message.answer("💼 Выберите интересующую Вас вакансию", reply_markup=toshkent)
 
 
-@dp.message_handler(text="Юнусабадский р-н")
+@dp.message_handler(text="Чиланзарский р-н")
 async def yusobod(message: types.Message):
     databace['region'] = message.text
     await message.answer("❇️ В каком филиале вы хотите работать?", reply_markup=yunusobod)
@@ -286,9 +284,3 @@ async def send(message: types.Message):
 Вы включены в список кандидатов на рассмотрение.
 Если вы хотите сдать анкету на другую вакансию, нажмите на раздел Вакансии.    
     """, reply_markup=menu)
-
-
-@dp.message_handler(text="❌ Отмена ❌")
-async def caccc(message: types.Message):
-    photo = open('images/evos.jpg', 'rb')
-    await message.answer_photo(photo, reply_markup=menu)

@@ -19,11 +19,24 @@ bot = Bot(token=API_TOKEN, parse_mode='HTML')
 dp = Dispatcher(bot, storage=MemoryStorage())
 dp.middleware.setup(LoggingMiddleware())
 
+
 class States(StatesGroup):
     location = State()
     name = State()
     pol = State()
     age = State()
+    adress = State()
+    phone = State()
+    student = State()
+    oqishjoyinomi = State()
+    time = State()
+    ishvaqt = State()
+    ozbektili = State()
+    rustili = State()
+    ishjoyiohirgi = State()
+    image = State()
+    social = State()
+
 
 @dp.message_handler(commands=['start'])
 async def startt(message: types.Message):
@@ -175,6 +188,38 @@ EVOS - крупнейшая фастфуд-компания в Узбекист�
             """, reply_markup=filials_btn)
 
 
+@dp.message_handler(text="📱 Меню")
+async def menyu(message:types.Message):
+    photo = open('images/menu.jpg', 'rb')
+    await message.answer_photo(photo, caption="""
+<a href="https://evos.uz/">Перейти на сайт Evos</a>    
+    """)
+    await message.answer("""
+<a href="https://www.instagram.com/evosuzbekistan/">Instagram</a>|<a href="https://t.me/cloneevos_bot">Telegram</a>|<a href="https://t.me/cloneevos_bot">Facebook</a>     
+    """)
+
+
+@dp.message_handler(text="🗣 Новости")
+async def novosti(message:types.Message):
+    await message.answer("""
+Kompaniya yangiliklari
+Aksiya
+Yangi filiallar
+Yangi tortlar va hk.    
+    """)
+
+@dp.message_handler(text="📞 Контакты/Адрес")
+async def kontakt(message: types.Message):
+    photo = open('images/kontakt.jpg', 'rb')
+    await message.answer_photo(photo, caption="""
+📍Адрес:  ул. Фурката 175, 1 подъезд, 2 этаж.
+📌Ориентир: MAKRO THE TOWER
+
+📲 Контакты: +998 71 203 12 12
+    """)
+    await bot.send_location(message.from_user.id, 41.302196, 69.248867)
+
+
 
 @dp.message_handler(content_types=types.ContentType.LOCATION)
 async def asdfasd(message: types.Message):
@@ -185,4 +230,6 @@ async def asdfasd(message: types.Message):
 
 if __name__ == '__main__':
     from vakansiya import dp
+    from callcenter import dp
+    from kuryer import dp
     executor.start_polling(dp, skip_updates=True)

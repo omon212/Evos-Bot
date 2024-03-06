@@ -169,3 +169,112 @@ pol = ReplyKeyboardMarkup(
     ],
     resize_keyboard=True
 )
+
+phone = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton("📞 Отправить номер", request_contact=True),
+        ],
+        [
+            KeyboardButton("❌ Отмена ❌"),
+            KeyboardButton("Назад 🔙")
+        ]
+    ],
+    resize_keyboard=True
+)
+
+student = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton("✅ Да"),
+            KeyboardButton("❌ Нет")
+        ],
+        [
+            KeyboardButton("❌ Отмена ❌"),
+            KeyboardButton("Назад 🔙")
+        ]
+    ],
+    resize_keyboard=True
+)
+
+status = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton("Очное"),
+            KeyboardButton("Заочное")
+        ],
+        [
+            KeyboardButton("Вечернее")
+        ],
+        [
+            KeyboardButton("❌ Отмена ❌"),
+            KeyboardButton("Назад 🔙")
+        ],
+    ],
+    resize_keyboard=True
+)
+
+btn = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton("Тг каналы"),
+            KeyboardButton("Наружная реклама")
+        ],
+        [
+            KeyboardButton("OLX"),
+            KeyboardButton("Вакансия ПБО")
+        ],
+        [
+            KeyboardButton("Вакансии на ПБО"),
+            KeyboardButton("Метро")
+        ],
+        [
+            KeyboardButton("От друга"),
+            KeyboardButton("Instagram")
+        ],
+        [
+            KeyboardButton("Подъезды"),
+            KeyboardButton("Автобусы")
+        ]
+    ],
+    resize_keyboard=True
+)
+
+soglasen = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton("✅ Согласен.")
+        ],
+        [
+            KeyboardButton("❌ Отмена ❌"),
+            KeyboardButton("Назад 🔙")
+        ]
+    ],
+    resize_keyboard=True
+)
+soglasenns = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton("Отправить")
+        ],
+        [
+            KeyboardButton("❌ Отмена ❌"),
+            KeyboardButton("Назад 🔙")
+        ]
+    ],
+    resize_keyboard=True
+)
+
+
+callcenter = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton("Чиланзарский р-н")
+        ],
+        [
+            KeyboardButton("❌ Отмена ❌"),
+            KeyboardButton("Назад 🔙")
+        ]
+    ],
+    resize_keyboard=True
+)
